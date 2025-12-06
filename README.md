@@ -306,6 +306,16 @@ While automated tests are not implemented in this prototype, the architecture su
 | Vite | 7.2.4 | Build tool |
 | ESLint | 9.39.1 | Code linting |
 
+## 📌 Assumptions
+
+The following assumptions were made during the development of this prototype:
+
+1.  **Single Session**: There is no backend persistence. All workflow data is stored in the client's memory and will be lost upon page refresh (unless exported).
+2.  **Single User**: The application is designed for a single administrator; no multi-user collaboration or authentication is implemented.
+3.  **Happy Path Focus**: While validation exists, the primary focus is on demonstrating the "happy path" of creating and simulating a valid workflow.
+4.  **Modern Browser**: The application relies on modern web features and is optimized for current versions of Chrome, Edge, Firefox, and Safari.
+5.  **Mock Data Volatility**: API responses are mocked locally (MSW/custom mocks). Any "changes" made via API (like simulating a workflow) do not persist permanently.
+
 ## 📝 Design Decisions
 
 ### Why Zustand over Redux?
