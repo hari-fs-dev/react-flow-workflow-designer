@@ -383,10 +383,7 @@ If I had more time, I would implement:
 4.  **Undo/Redo**: (Already implemented! See `useWorkflowStore.ts`)
 5.  **Export/Import JSON**: (Already implemented! See Toolbar)
 
-## 🏗️ Architecture
 
-### Project Structure
-... (rest of the file)
 
 ## 📊 Performance Considerations
 
