@@ -25,22 +25,6 @@ const SidebarPalette: FC = () => {
     const handleLoadTemplate = (templateId: string) => {
         const template = workflowTemplates.find((t) => t.id === templateId);
         if (template) {
-            // Use loadWorkflow for atomic update and correct history
-            // But wait, if we want to APPEND on click as discussed?
-            // The user said "it shouldn't work like that" (replace).
-            // So maybe I should use addNodes/addEdges here too?
-            // But I need to regenerate IDs.
-            // Let's stick to REPLACE for now but make it undoable in one step, 
-            // OR switch to APPEND if I can easily share the logic.
-            // Since I can't easily share the logic without refactoring, 
-            // and the user's main complaint was "undo / redo options are not working",
-            // fixing undo for replace is a good step.
-            // But "if i click on one template, if i click on another template, it shouldn't work like that"
-            // implies they want to add.
-            // I'll try to duplicate the append logic here if possible, or just fix the undo for replace.
-            // Given the complexity of duplicating logic in `replace_file_content`, 
-            // I'll fix the undo for replace first (using loadWorkflow).
-            // If they want append, they can drag.
             loadWorkflow(template.workflow.nodes, template.workflow.edges);
         }
     };
@@ -55,8 +39,8 @@ const SidebarPalette: FC = () => {
             </div>
             <div className="panel-body" style={{ padding: 0 }}>
                 {/* Tabs */}
-                <div style={{ 
-                    display: 'flex', 
+                <div style={{
+                    display: 'flex',
                     borderBottom: '1px solid #e5e7eb',
                     background: '#f9fafb'
                 }}>
@@ -116,16 +100,6 @@ const SidebarPalette: FC = () => {
                                     </div>
                                 </div>
                             ))}
-                            <div style={{ 
-                                marginTop: '1rem', 
-                                padding: '0.75rem', 
-                                background: 'rgba(99, 102, 241, 0.05)', 
-                                borderRadius: '0.5rem', 
-                                fontSize: '0.75rem', 
-                                color: '#6b7280' 
-                            }}>
-                                💡 <strong>Tip:</strong> Drag nodes onto the canvas to build your workflow
-                            </div>
                         </>
                     )}
 
@@ -157,9 +131,9 @@ const SidebarPalette: FC = () => {
                                         e.currentTarget.style.boxShadow = 'none';
                                     }}
                                 >
-                                    <div style={{ 
-                                        fontSize: '0.875rem', 
-                                        fontWeight: 600, 
+                                    <div style={{
+                                        fontSize: '0.875rem',
+                                        fontWeight: 600,
                                         marginBottom: '0.25rem',
                                         color: '#111827'
                                     }}>
@@ -171,9 +145,9 @@ const SidebarPalette: FC = () => {
                                     <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>
                                         {template.description}
                                     </div>
-                                    <div style={{ 
-                                        marginTop: '0.5rem', 
-                                        fontSize: '0.7rem', 
+                                    <div style={{
+                                        marginTop: '0.5rem',
+                                        fontSize: '0.7rem',
                                         color: '#9ca3af',
                                         display: 'flex',
                                         gap: '0.75rem'
@@ -183,16 +157,6 @@ const SidebarPalette: FC = () => {
                                     </div>
                                 </div>
                             ))}
-                            <div style={{ 
-                                marginTop: '1rem', 
-                                padding: '0.75rem', 
-                                background: 'rgba(99, 102, 241, 0.05)', 
-                                borderRadius: '0.5rem', 
-                                fontSize: '0.75rem', 
-                                color: '#6b7280' 
-                            }}>
-                                💡 <strong>Tip:</strong> Drag a template to add it to the canvas
-                            </div>
                         </>
                     )}
                 </div>

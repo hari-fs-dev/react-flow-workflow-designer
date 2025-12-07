@@ -55,9 +55,9 @@ const SimulationPanel: FC = () => {
             </div>
             <div className="panel-body">
                 {nodes.length === 0 && !result && (
-                    <div style={{ 
-                        textAlign: 'center', 
-                        padding: '2rem 1rem', 
+                    <div style={{
+                        textAlign: 'center',
+                        padding: '2rem 1rem',
                         color: '#9ca3af',
                         fontSize: '0.875rem'
                     }}>
@@ -97,9 +97,9 @@ const SimulationPanel: FC = () => {
                                 📋 Execution Log:
                             </strong>
                             {result.steps.length === 0 ? (
-                                <div style={{ 
-                                    padding: '1rem', 
-                                    textAlign: 'center', 
+                                <div style={{
+                                    padding: '1rem',
+                                    textAlign: 'center',
                                     color: '#9ca3af',
                                     fontSize: '0.8125rem'
                                 }}>
@@ -110,11 +110,11 @@ const SimulationPanel: FC = () => {
                                     {result.steps.map((step) => (
                                         <div key={step.stepIndex} className="simulation-step">
                                             <div className="simulation-step-label">
-                                                <span style={{ 
-                                                    display: 'inline-block', 
-                                                    width: '1.5rem', 
-                                                    height: '1.5rem', 
-                                                    borderRadius: '50%', 
+                                                <span style={{
+                                                    display: 'inline-block',
+                                                    width: '1.5rem',
+                                                    height: '1.5rem',
+                                                    borderRadius: '50%',
                                                     background: step.status === 'success' ? '#10b981' : step.status === 'warning' ? '#f59e0b' : '#ef4444',
                                                     color: 'white',
                                                     textAlign: 'center',
@@ -139,16 +139,7 @@ const SimulationPanel: FC = () => {
                             )}
                         </div>
 
-                        <div style={{ 
-                            marginTop: '1rem', 
-                            padding: '0.75rem', 
-                            background: 'rgba(99, 102, 241, 0.05)', 
-                            borderRadius: '0.5rem', 
-                            fontSize: '0.75rem',
-                            color: '#6b7280'
-                        }}>
-                            💡 <strong>Tip:</strong> Fix any validation issues above to ensure your workflow runs correctly.
-                        </div>
+
                     </>
                 )}
             </div>
